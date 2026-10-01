@@ -71,9 +71,11 @@ npx --yes serve . -l 4331
 
 Depois abra `http://localhost:4331`.
 
-## Deploy na Vercel
+## No ar
 
-1. Suba **esta pasta** para um repositório no GitHub.
-2. Na Vercel: **Add New → Project** e importe o repositório.
-3. **Framework Preset:** `Other` · **Build Command:** _(vazio)_ · **Root Directory:** raiz.
-4. Deploy. Não há variáveis de ambiente nem formulário.
+- **Endereço:** https://lp-dennispenna-linkbio.vercel.app
+- **Repositório:** https://github.com/polotrafego/lp-dennispenna-linkbio (branch `main`)
+- **Vercel:** projeto `lp-dennispenna-linkbio`, time *trafego-polo*, ligado ao repositório —
+  todo `git push` no `main` publica sozinho, em poucos segundos.
+- Configuração: **Framework** `Other`, sem build, raiz do repositório. Sem variáveis de
+  ambiente nem formulário.
