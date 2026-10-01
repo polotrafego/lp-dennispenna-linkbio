@@ -1,0 +1,606 @@
+/* =====================================================================
+   Dennis Penna — Linkbio
+   Identidade da página da GPS Mentoria (palestras.academy/gpsmentoria):
+   preto quase puro, pergaminho, latão e vinho; DM Sans; cantos retos;
+   pontilhado de latão no fundo. Estrutura inspirada em lp.victordamasio.com.br:
+   foto no topo, cartões-banner para os produtos e cartões de link com ícone.
+   ===================================================================== */
+
+:root {
+  --preto: #0c0908;
+  --preto-2: #15110f;
+  --pergaminho: #f9f6f1;
+  --latao: #c08f42;
+  --latao-claro: #d6a95e;
+  --vinho: #6b2436;
+
+  --texto: var(--pergaminho);
+  --texto-apoio: color-mix(in oklab, var(--pergaminho) 70%, transparent);
+  --texto-mudo: color-mix(in oklab, var(--pergaminho) 50%, transparent);
+  --borda: color-mix(in oklab, var(--pergaminho) 12%, transparent);
+  --borda-latao: color-mix(in oklab, var(--latao) 45%, transparent);
+
+  --fonte: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --caps: 0.22em;
+  --largura: 30rem;
+  --gutter: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--preto);
+  color: var(--texto);
+  font-family: var(--fonte);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--latao);
+  outline-offset: 3px;
+}
+
+/* ---------- pontilhado de latão (o mesmo da GPS Mentoria) ---------- */
+
+.pontos {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  --mx: -9999px;
+  --my: -9999px;
+}
+
+.pontos-base,
+.pontos-brilho {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--latao) 1px, transparent 1.4px);
+  background-size: 24px 24px;
+}
+
+.pontos-base {
+  opacity: 0.12;
+}
+
+.pontos-brilho {
+  opacity: 0.5;
+  filter: blur(1px);
+  -webkit-mask-image: radial-gradient(160px circle at var(--mx) var(--my), #000 0%, transparent 75%);
+  mask-image: radial-gradient(160px circle at var(--mx) var(--my), #000 0%, transparent 75%);
+}
+
+/* ---------- a coluna ---------- */
+
+.pagina {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 var(--gutter) calc(2.5rem + env(safe-area-inset-bottom));
+}
+
+/* ---------- topo ---------- */
+
+/* TOPO COMPACTO desde 01.10.2026 ("diminuir ainda mais a imagem, metade do
+   que tem hoje… mude a disposição de imagem e texto"): a foto deixou de ser
+   uma faixa de largura total com o nome por cima e virou um retrato à
+   esquerda, com o texto ao lado. A foto tem ~168px de altura — metade dos
+   336px da versão anterior — e o topo inteiro ocupa pouco mais que isso. */
+.topo {
+  position: relative;
+  display: grid;
+  grid-template-columns: 8.4rem 1fr;
+  gap: 1.125rem;
+  align-items: center;
+  padding-top: 1.75rem;
+}
+
+.topo-foto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--borda-latao);
+  box-shadow: 0 18px 36px -18px color-mix(in oklab, var(--latao) 55%, transparent);
+}
+
+.topo-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 16%;
+}
+
+.topo-texto {
+  position: relative;
+  min-width: 0;
+}
+
+/* Espaçamento menor que o dos rótulos: cabe numa linha ao lado da foto. */
+.topo .eyebrow {
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: var(--caps);
+  text-transform: uppercase;
+  color: var(--latao);
+}
+
+.nome {
+  margin: 0.375rem 0 0;
+  font-size: clamp(1.75rem, 1.3rem + 2.2vw, 2.25rem);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+/* "Dennis" e "Penna" em linhas próprias: na coluna estreita ao lado da foto,
+   o nome em duas linhas fica maior e mais legível do que espremido em uma. */
+.nome b {
+  display: block;
+  font-weight: 700;
+}
+
+.apoio {
+  margin: 0.625rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--texto-apoio);
+}
+
+/* ---------- blocos ---------- */
+
+.bloco {
+  margin-top: 2.5rem;
+}
+
+.rotulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: var(--caps);
+  text-transform: uppercase;
+  color: var(--texto-mudo);
+}
+
+.rotulo::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--borda);
+}
+
+/* ---------- cartões-banner (produtos) ---------- */
+
+.banner {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--borda-latao);
+  background: var(--preto-2);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.banner + .banner {
+  margin-top: 1rem;
+}
+
+.banner-foto {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.banner-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* A foto da mentoria tem letreiro do telão à esquerda: aproxima no Dennis. */
+.banner-foto-mentoria img {
+  object-position: 46% 30%;
+  scale: 1.32;
+  transform-origin: 47% 32%;
+}
+
+.banner-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, var(--preto-2) 100%);
+}
+
+.banner-corpo {
+  position: relative;
+  margin-top: -2.75rem;
+  padding: 0 1.25rem 1.375rem;
+}
+
+.banner-logo {
+  width: auto;
+}
+
+.banner-logo-gps {
+  height: 3.25rem;
+}
+
+.banner-logo-programa {
+  height: 3.5rem;
+}
+
+.banner-texto {
+  margin: 0.875rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--texto-apoio);
+}
+
+.banner-texto strong {
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 3rem;
+  margin-top: 1.125rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--latao);
+  color: var(--preto);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--latao) 60%, transparent);
+  transition: background-color 0.25s ease;
+}
+
+.cta svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s ease;
+}
+
+/* Botão secundário: contorno de latão (a segunda loja do livro). */
+.cta-contorno {
+  background: transparent;
+  color: var(--latao);
+  box-shadow: inset 0 0 0 1px var(--latao);
+}
+
+.cta .cta-icone {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ---------- livro ---------- */
+
+.livro {
+  display: grid;
+  grid-template-columns: 6.25rem 1fr;
+  gap: 1rem 1.125rem;
+  align-items: center;
+  padding: 1.125rem;
+  border: 1px solid var(--borda-latao);
+  background: var(--preto-2);
+}
+
+.livro-capa {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 14px 28px -12px rgb(0 0 0 / 0.8);
+}
+
+.livro-titulo {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.livro-autores {
+  margin: 0.375rem 0 0;
+  font-size: 0.75rem;
+  color: var(--latao);
+}
+
+.livro-texto {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--texto-apoio);
+}
+
+.livro-botoes {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.625rem;
+}
+
+.livro-botoes .cta {
+  margin-top: 0;
+}
+
+/* ---------- Showmakers ---------- */
+
+.showmakers {
+  display: block;
+  padding: 1.375rem 1.25rem;
+  border: 1px solid var(--borda-latao);
+  background: var(--preto-2);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.showmakers-logo {
+  width: auto;
+  height: 4.25rem;
+}
+
+.showmakers .banner-texto {
+  margin-top: 1rem;
+}
+
+/* ---------- cartões de link (podcast e redes) ---------- */
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-height: 4.5rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--borda);
+  background: color-mix(in oklab, var(--preto-2) 88%, transparent);
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.link + .link {
+  margin-top: 0.625rem;
+}
+
+.link-icone {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border: 1px solid var(--borda-latao);
+  background: color-mix(in oklab, var(--latao) 8%, transparent);
+  color: var(--latao);
+}
+
+.link-icone svg {
+  width: 1.375rem;
+  height: 1.375rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.link-icone svg .cheio {
+  fill: currentColor;
+  stroke: none;
+}
+
+.link-texto {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+}
+
+.link-titulo {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.link-sub {
+  font-size: 0.8125rem;
+  color: var(--texto-mudo);
+}
+
+.link-seta {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--texto-mudo);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition:
+    stroke 0.25s ease,
+    transform 0.25s ease;
+}
+
+.redes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
+}
+
+.redes .link + .link {
+  margin-top: 0;
+}
+
+.link-rede {
+  gap: 0.625rem;
+  padding: 0.75rem 0.625rem;
+}
+
+.link-rede .link-icone {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.link-rede .link-icone svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.link-rede .link-sub {
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- rodapé ---------- */
+
+.rodape {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--texto-mudo);
+}
+
+.rodape p {
+  margin: 0;
+}
+
+/* ---------- interação ---------- */
+
+@media (hover: hover) {
+  .banner:hover {
+    border-color: var(--latao);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -20px color-mix(in oklab, var(--latao) 45%, transparent);
+  }
+
+  .banner:hover .banner-foto img {
+    transform: scale(1.04);
+  }
+
+  .banner:hover .cta {
+    background: var(--latao-claro);
+  }
+
+  .banner:hover .cta svg {
+    transform: translateX(3px);
+  }
+
+  .showmakers:hover {
+    border-color: var(--latao);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -20px color-mix(in oklab, var(--latao) 45%, transparent);
+  }
+
+  .showmakers:hover .cta,
+  .livro-botoes .cta:not(.cta-contorno):hover {
+    background: var(--latao-claro);
+  }
+
+  .livro-botoes .cta-contorno:hover {
+    background: color-mix(in oklab, var(--latao) 12%, transparent);
+  }
+
+  .link:hover {
+    border-color: var(--borda-latao);
+    background: color-mix(in oklab, var(--latao) 6%, var(--preto-2));
+  }
+
+  .link:hover .link-seta {
+    stroke: var(--latao);
+    transform: translate(2px, -2px);
+  }
+}
+
+.banner:active,
+.showmakers:active,
+.link:active {
+  transform: scale(0.99);
+}
+
+/* Entrada suave, só com JS ativo e sem "reduzir movimento". */
+.js .surgir {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js .surgir.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .js .surgir {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- telas maiores: a coluna ganha moldura ---------- */
+
+@media (min-width: 40rem) {
+  :root {
+    --gutter: 1.5rem;
+  }
+
+  .pagina {
+    padding-top: 2rem;
+  }
+}

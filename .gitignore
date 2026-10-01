@@ -1,0 +1,16 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Dependências / build (site estático, mas por segurança)
+node_modules/
+.vercel/
+
+# Local: configuração da pré-visualização e pacotes compactados
+.claude/
+*.zip
