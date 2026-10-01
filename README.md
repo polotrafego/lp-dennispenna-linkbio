@@ -37,7 +37,7 @@ Na primeira versão a foto ocupava ~68% da tela, com o nome por cima; depois ~42
 | Livro — Amazon | `https://a.co/d/00jQQQsb` (livro físico) |
 | Livro — Gente Editora | `https://www.editoragente.com.br/crie-palestras-inesqueciveis/p` |
 | Showmakers (WhatsApp) | `https://wa.link/2n9ofj` — o mesmo da Arena Academy; abre com a mensagem pronta "Olá, Sara! Gostaria de mais informações sobre o Palestras Academy!" |
-| PodPalco no Spotify | `https://open.spotify.com/` — **genérico por enquanto** |
+| PodPalco no Spotify | `https://open.spotify.com/show/28e8exfjwKveskUGheeokV` |
 | PodPalco no YouTube | `https://www.youtube.com/@palestras.academy` |
 | Instagram | `https://www.instagram.com/dennispenna/` |
 | LinkedIn | `https://www.linkedin.com/in/dennispenna/` |
@@ -45,10 +45,13 @@ Na primeira versão a foto ocupava ~68% da tela, com o nome por cima; depois ~42
 Os links da GPS Mentoria e do Programa Online levam UTMs, para o tráfego desta página
 aparecer separado nos relatórios.
 
-## ⚠️ Pendência antes de publicar
+## Imagens: só JPG e PNG
 
-- **Link do PodPalco no Spotify**: trocar `https://open.spotify.com/` no `index.html`
-  pelo endereço do programa (`https://open.spotify.com/show/…`) quando ele existir.
+Todas as imagens da página são `.jpg` ou `.png`, de propósito. Algumas hospedagens não
+servem `.webp` nem `.svg` (ou bloqueiam o envio de `.svg`), e a imagem simplesmente não
+aparece. Foi o que aconteceu com a capa do livro e o logo do Showmakers ao subir a pasta
+num domínio próprio em 01.10.2026; os dois foram convertidos (e o favicon também).
+Se for trocar alguma imagem, mantenha esses dois formatos.
 
 ## Estrutura
 

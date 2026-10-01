@@ -14,3 +14,7 @@ node_modules/
 # Local: configuração da pré-visualização e pacotes compactados
 .claude/
 *.zip
+
+# Versões antigas (01.10.2026) que o Google Drive não deixou apagar; a página não usa
+assets/img/livro-crie-palestras-inesqueciveis.webp
+assets/img/logo-showmakers.svg
