@@ -19,9 +19,10 @@ no mesmo formato dos links na bio dos outros palestrantes.
 2. **GPS Mentoria** — cartão-banner → `palestras.academy/gpsmentoria`.
 3. **Programa Online Palestra Além do Palco** — cartão-banner → `palestras.academy/programaonline`.
 4. **Livro "Crie palestras inesquecíveis"** (Dennis Penna e Joni Galvão, Gente Editora) —
-   capa e dois botões de compra: Amazon (livro físico) e Gente Editora.
-5. **Showmakers** — logo e texto do bloco de parceiros do palestras.academy (`parceiro_1_*`
-   no painel) e o botão de WhatsApp da Arena Academy (`whatsapp_url` no painel).
+   capa e o botão de compra na Amazon (livro físico).
+5. **Showmakers** — cartão-banner com a imagem dos trabalhos (`showmakers-card.jpg`), o logo,
+   a descrição ("Sua história pode se transformar em uma grande palestra…") e o botão de
+   WhatsApp da Arena Academy (`whatsapp_url` no painel do palestras.academy).
 6. **PodPalco** — Spotify e YouTube.
 7. **Redes sociais** — Instagram e LinkedIn.
 
@@ -35,7 +36,6 @@ Na primeira versão a foto ocupava ~68% da tela, com o nome por cima; depois ~42
 | GPS Mentoria | `https://www.palestras.academy/gpsmentoria?utm_source=linkbio&utm_medium=dennispenna&utm_campaign=gpsmentoria` |
 | Programa Online | `https://www.palestras.academy/programaonline?utm_source=linkbio&utm_medium=dennispenna&utm_campaign=programaonline` |
 | Livro — Amazon | `https://a.co/d/00jQQQsb` (livro físico) |
-| Livro — Gente Editora | `https://www.editoragente.com.br/crie-palestras-inesqueciveis/p` |
 | Showmakers (WhatsApp) | `https://wa.link/2n9ofj` — o mesmo da Arena Academy; abre com a mensagem pronta "Olá, Sara! Gostaria de mais informações sobre o Palestras Academy!" |
 | PodPalco no Spotify | `https://open.spotify.com/show/28e8exfjwKveskUGheeokV` |
 | PodPalco no YouTube | `https://www.youtube.com/@palestras.academy` |

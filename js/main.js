@@ -35,7 +35,7 @@
   if (reduzir || !("IntersectionObserver" in window)) return;
 
   document.documentElement.classList.add("js");
-  var alvos = document.querySelectorAll(".topo-texto, .banner, .livro, .showmakers, .link, .rotulo");
+  var alvos = document.querySelectorAll(".topo-texto, .banner, .livro, .link, .rotulo");
   var observador = new IntersectionObserver(
     function (entradas) {
       entradas.forEach(function (entrada) {
